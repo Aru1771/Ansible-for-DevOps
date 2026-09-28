@@ -4,15 +4,25 @@ Ansible for DevOps
 Imp CMD:
 --------
 
-**To ping a specific group**: ansible group_name -i inventory -m ping
+**To ping a specific group**: 
 
-**Syntax for creating a parent_group** [parent_group_name:children]
+     ansible group_name -i inventory -m ping
 
-**To ping a parent_group**: ansible parent_group_name -i inventory -m ping
+**Syntax for creating a parent_group** 
+ 
+    [parent_group_name:children]
 
-**How do you visualize an inventory**: ansible-inventory -i inventory --graph
+**To ping a parent_group**: 
 
-**host-variables & group-variables**: host-variables are spec of single host. group-variable are same specifications which are useing by the multiple hosts.
+    ansible parent_group_name -i inventory -m ping
+
+**How do you visualize an inventory**: 
+
+    ansible-inventory -i inventory --graph
+
+**host-variables & group-variables**:
+
+    host-variables are spec of single host. group-variable are same specifications which are useing by the multiple hosts.
 
 
 
