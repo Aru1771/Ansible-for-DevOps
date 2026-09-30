@@ -25,5 +25,27 @@ Imp CMD:
     host-variables are spec of single host. group-variable are same specifications which are useing by the multiple hosts.
 
 
+Manual SSH:
 
+    ssh -i /root/ansible-lab/key.pem ec2-user@172.31.79.2
+
+Check SSH service: 
+
+     sudo systemctl status sshd
+
+Check port 22:
+
+     nc -vz 172.31.79.2 22
+
+Ansible ping:
+
+    ansible server01 -i inventory -m ping
+
+Execute uptime: 
+
+    ansible server01 -i inventory -m command -a "uptime"
+
+Execute hostname:
+
+    ansible server01 -i inventory -m command -a "hostname"
 
