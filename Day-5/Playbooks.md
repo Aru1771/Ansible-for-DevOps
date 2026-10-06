@@ -17,7 +17,8 @@ and:
 
 This works, but imagine an application deployment requiring 10–20 steps.
 
-You don't want to manually execute 20 commands.
+    An Ansible playbook is a YAML file that defines the desired configuration or automation steps for managed servers. A playbook contains one or more plays,         and each play targets specific hosts and contains tasks that use Ansible modules. For example, we can use a playbook to install application dependencies,          create directories, copy configuration files, and start or restart services.
+     You don't want to manually execute 20 commands.
 
 Instead, put the tasks into a YAML file called an Ansible playbook.
 
