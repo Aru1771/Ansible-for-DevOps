@@ -578,3 +578,38 @@ Verify the file from Ansible:
 
     ansible server01 -i inventory -m command \
       -a "cat /opt/myapp/app.conf"
+
+
+Task-Play-Book:
+
+        
+        ---
+        
+        - name: installing the nginx
+          hosts: server01
+          become: true
+        
+          tasks:
+        
+            - name: install nginx
+              ansible.builtin.dnf:
+                name: nginx
+                state: present
+        
+            - name: start nginx
+              ansible.builtin.systemd:
+                name: nginx
+                state: started
+        
+            - name: create a dir
+              ansible.builtin.file:
+                path: /root/ansible-lab/file1.txt
+                state: directory
+                mode: 0777
+        
+            - name: copy to root
+              ansible.builtin.copy:
+                src: /root/ansible-lab/app.conf
+                dest: /root/
+                mode: 0400
+        
