@@ -179,6 +179,8 @@ For now, use your Linux server's IP:
       [linux_servers]
       server01 ansible_host=<same_server_ip> ansible_user=ec2-user ansible_ssh_private_key_file=/root/ansible-lab/key.pem
 
+      file permissions: chmod 400 /root/ansible-lab/key.pem
+
       in the above we have used the same ip of ec2 where we installed our Ansible.
       user is ec2-user
       we created one .pem file and pasted the private key init. then we provided 400 permissions to file and we used in the inventory with path.
