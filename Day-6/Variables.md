@@ -13,6 +13,7 @@ By the end of today, you should understand how to:
 
 
 Why do we need variables?
+-------------------------
 
 Imagine you have this:
 
@@ -50,6 +51,28 @@ the playbook automatically works with:
 
 That's the main purpose of variables.
 
+Variable Types:
+----------------
+Ansible variables aren't limited to strings.
+
+    String: app_name: myapp
+    
+    Number: app_port: 8080
+    
+    List: packages:
+          - nginx
+          - git
+          - curl
+    
+    Dictionary:application:
+                  name: myapp
+                  port: 8080
+                  environment: production
+
+
+We will use these heavily later.
+
+
 
 Basic variable syntax
 -------------------------
@@ -79,6 +102,108 @@ Use variable:
     {{ app_name }}
 
 {{ }} is called Jinja2 template syntax.
+
+Multiple Variables:
+---------------------
+You can define multiple variables:
+
+
+    vars:
+      package_name: nginx
+      package_state: present
+      service_name: nginx
+      web_port: 80
+
+
+Then:
+
+    tasks:
+    
+      - name: Install package
+        ansible.builtin.package:
+          name: "{{ package_name }}"
+          state: "{{ package_state }}"
+    
+      - name: Start service
+        ansible.builtin.service:
+          name: "{{ service_name }}"
+          state: started
+          enabled: true
+
+
+
+
+Using a List Variable
+----------------------
+
+    ---
+    - name: Install packages
+      hosts: all
+      become: true
+    
+      vars:
+        packages:
+          - nginx
+          - git
+          - curl
+    
+      tasks:
+    
+        - name: Install packages
+          ansible.builtin.package:
+            name: "{{ item }}"
+            state: present
+          loop: "{{ packages }}"
+    
+Flow:
+    
+    packages
+       |
+       +── nginx
+       +── git
+       +── curl
+              |
+              ▼
+            loop
+              |
+              ▼
+          package module  
+        
+    
+
+Dictionary Variables
+
+Suppose:
+
+    application:
+      name: payment-api
+      port: 8080
+      environment: production
+
+You can access individual values:
+
+    {{ application.name }}
+
+    {{ application.port }}
+
+    {{ application.environment }}
+
+Example:
+
+    - name: Show application
+      ansible.builtin.debug:
+        msg: "Application {{ application.name }} runs on port {{ application.port }}"
+
+Output conceptually:
+
+    Application payment-api runs on port 8080
+
+
+
+
+
+
+
 
 Your first practical task
 -----------------------
