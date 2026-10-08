@@ -280,24 +280,45 @@ Then verify:
     ls -ld /opt/myapp
 
 
-Multiple variables
-------------------
+Real DevOps Use Case — Software Installation
+---------------------------------------------
 
-Add these variables:
+    ---
+    - name: Install software using variables
+      hosts: all
+      become: true
+    
+      vars:
+        package_name: nginx
+    
+      tasks:
+    
+        - name: Install software
+          ansible.builtin.package:
+            name: "{{ package_name }}"
+            state: present
+    
+The important relationship is:
 
-    vars:
-      app_name: git-app
-      app_version: "1.0"
-      app_port: 8080
+    package_name
+         │
+         ▼
+    "nginx"
+         │
+         ▼
+    package module
+         │
+         ▼
+    Install nginx
 
-Then change your debug task to:
+Tomorrow you could change:
 
-    - name: Display application details
-      ansible.builtin.debug:
-        msg: "Application {{ app_name }} version {{ app_version }} is running on port {{ app_port }}"
+    package_name: nginx
 
-Expected output:
+to:
 
-    Application git-app version 1.0 is running on port 8080
+    package_name: git
 
-This will teach you how multiple variables can be used together in a real application deployment.
+without changing the task.    
+
+
