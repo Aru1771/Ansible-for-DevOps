@@ -321,4 +321,56 @@ to:
 
 without changing the task.    
 
+Day 6 — Task completion checklist
+----------------------------------
 
+Task 1: Create the app dictionary and display all six values.
+
+Task 2: Change environment to prod and port to 80.
+
+Bonus: Create a packages list containing git, curl, and unzip, then install them on EC2 using a loop.
+
+
+
+
+
+
+        ---
+        
+        - name: varaibles learning
+          hosts: dev
+          become: true
+        
+          vars:
+            app:
+              app_name: Empower
+              app_version: "fr4"
+              port: 8080
+              environment: dev
+              directory: /op/Empower
+            packages:
+            - git-core
+            - nginx-core
+        
+        
+          tasks:
+            - name: Display app_name
+              ansible.builtin.debug:
+                msg: "Application Name: {{ app.app_name }}"
+        
+            - name: Display application version
+              ansible.builtin.debug:
+                msg: "Application Name: {{ app.app_version }}"
+        
+            - name: Display application port
+              ansible.builtin.debug:
+                msg: "Application Port: {{ app.port }}"
+        
+        
+            - name: uninstall all
+              ansible.builtin.package:
+                name: "{{ packages }}"
+                state: absent
+        
+        
+        
