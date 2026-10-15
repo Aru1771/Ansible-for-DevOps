@@ -73,12 +73,17 @@ Create deploy.yml:
         - name: Display application configuration
           ansible.builtin.debug:
             msg: >-
-              Host={{ inventory_hostname }},
+              Host={{ inventory_hostname }}, 
               App={{ app_name }},
               Version={{ app_version }},
               Environment={{ environment }},
               Port={{ port }},
               Role={{ server_role }}
+
+* inventory_hostname is a built-in Ansible variable that contains the name of the host as it appears in your inventory file.
+* You don't need to define it yourself. Ansible provides it automatically.
+* {{ inventory_hostname }} — Jinja2 syntax that inserts the current inventory host's name
+* When Ansible runs the task on server01, it substitutes the variable with server01. When it runs on server02, it substitutes it with server02.
     
 Run:
 
