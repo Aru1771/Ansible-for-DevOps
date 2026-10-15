@@ -104,3 +104,6 @@ File	Example settings
 
 This helps reuse one deployment playbook across development and production EC2 instances.
 
+Note:
+
+    the group_vars filename should match the inventory group name when you want Ansible to automatically load variables for that group.
