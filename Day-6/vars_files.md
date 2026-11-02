@@ -6,8 +6,9 @@ Theory: What is vars_files?
 * vars_files allows you to store variables in a separate YAML file and load them into your playbook.
 
 * Why is this useful?
-  Imagine your Empower application has many settings: application name, release version, environment, port, installation directory, and service name.
-  Keeping all these values directly inside the playbook can make it difficult to maintain.
+
+       Imagine your Empower application has many settings: application name, release version, environment, port, installation directory, and service name.
+        Keeping all these values directly inside the playbook can make it difficult to maintain.
 
 * Instead, you can separate the configuration from the tasks.
 
