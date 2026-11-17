@@ -51,3 +51,18 @@ First task:
 
 <img width="1012" height="688" alt="image" src="https://github.com/user-attachments/assets/5e2ddeb3-4726-4128-a72e-5f8fada596d1" />
 
+<img width="997" height="806" alt="image" src="https://github.com/user-attachments/assets/f1c844d8-6679-467b-bb20-6a61b6c960e2" />
+
+<img width="1041" height="325" alt="image" src="https://github.com/user-attachments/assets/61e36e52-e586-4bb3-a553-f99e71d207fa" />
+
+register + when — Practical Exercise
+
+<img width="1002" height="427" alt="image" src="https://github.com/user-attachments/assets/e35629d5-99e6-49f8-a971-42772fc07fd4" />
+
+<img width="1003" height="695" alt="image" src="https://github.com/user-attachments/assets/82c14904-b428-4db0-aee2-6abad55f271a" />
+
+<img width="992" height="388" alt="image" src="https://github.com/user-attachments/assets/e957c7b0-c0ed-4527-a71e-2be1725b5d94" />
+
+<img width="975" height="636" alt="image" src="https://github.com/user-attachments/assets/e49f9875-457e-402b-b405-e17cf49077ff" />
+
+<img width="970" height="557" alt="image" src="https://github.com/user-attachments/assets/cab4cbf5-e124-43f7-afab-f698af9cfbf7" />
